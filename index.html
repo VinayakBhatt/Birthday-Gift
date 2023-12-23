@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title></title>
+  <link rel="stylesheet" href="A.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="card">
+      <div class="back"></div>
+      <div class="front">
+        <div class="imgset">
+          <img width="100%" src="https://1.bp.blogspot.com/-Mgj9-rbs65E/XfMoPSD5gtI/AAAAAAAAURk/NBokE2gSS2cTSJ2em5lZ5hJDuTtRN7UVwCLcBGAsYHQ/s1600/2713997.png">
+        </div>
+      </div>
+      <div class="text-container">
+        <p id="head"> 🎂 Happy Birthday 🎂 🎊 Prachi { Shalu } 🎊</p>
+        <p>I hope your special day will bring you lots of happiness, love, and fun. You deserve them a lot. Enjoy!</p>
+        <p>Hope your day goes great!</p>
+      </div>
+    </div>
+
+    <div class="button-container">
+      <button class="button" id="hi" onclick="playAudio('myAudio', 'hi')"> Prachi
+        <div class="hoverEffect">
+          <div></div>
+        </div>
+      </button>
+
+      <button class="button" id="hi2" onclick="playAudio('myAudio2', 'hi2')"> Shalu
+        <div class="hoverEffect">
+          <div></div>
+        </div>
+      </button>
+    </div> <!-- Close the button-container div here -->
+  </div>
+
+  <audio id="myAudio" muted>
+    <source src="1.mp3" type="audio/mp3">
+  </audio>
+
+  <audio id="myAudio2" muted>
+    <source src="2.mp3" type="audio/mp3">
+  </audio>
+
+  <script>
+    let currentAudio = null;
+
+    function playAudio(audioId, buttonId) {
+      const audio = document.getElementById(audioId);
+      const button = document.getElementById(buttonId);
+
+      if (currentAudio && currentAudio !== audio) {
+        currentAudio.pause();
+        currentAudio.currentTime = 0;
+        currentAudio.muted = true; // Mute other audio
+        currentAudio = null;
+        enableButtons(); // Enable all buttons
+      }
+
+      if (audio.paused) {
+        audio.muted = false; // Unmute audio before playing
+        audio.play();
+        currentAudio = audio;
+        button.textContent = "Pause Audio";
+        disableOtherButtons(buttonId); // Disable other buttons
+      } else {
+        audio.pause();
+        audio.currentTime = 0;
+        currentAudio = null;
+        button.textContent = "Play Audio";
+        enableButtons(); // Enable all buttons
+      }
+    }
+
+    function disableOtherButtons(exceptButtonId) {
+      const buttons = document.querySelectorAll('.button');
+      buttons.forEach(button => {
+        if (button.id !== exceptButtonId) {
+          button.disabled = true;
+        }
+      });
+    }
+
+    function enableButtons() {
+      const buttons = document.querySelectorAll('.button');
+      buttons.forEach(button => {
+        button.disabled = false;
+      });
+    }
+  </script>
+ 
+
+  <script src="confetti.js"></script>
+  <!-- Confetti JS-->
+  <script>
+    // start
+    const start = () => {
+      setTimeout(function () {
+        confetti.start()
+      }, 1000); // 1000 is time that after 1 second start the confetti ( 1000 = 1 sec)
+    };
+
+    // Stop
+    const stop = () => {
+      setTimeout(function () {
+        confetti.stop()
+      }, 50000); // 5000 is time that after 5 second stop the confetti ( 5000 = 5 sec)
+    };
+
+    start();
+    stop();
+  </script>
+
+  <footer>
+	<p id="p"><marquee> All rights reserved By:@Vinayak </marquee></p>
+  </footer>
+</body>
+
+</html>

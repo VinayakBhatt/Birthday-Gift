@@ -1,0 +1,367 @@
+body {
+  height: 100%;
+  margin: 0;
+  background-repeat: no-repeat;
+  background-color: black;
+  background-attachment: fixed;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.card {
+  position: relative;
+  width: 300px;
+  height: 500px;
+  border: 10px solid #9612eb;
+  margin: 60px auto 0 auto;
+  box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255), rgba(255, 255, 255, 0.5)),
+    url("https://images.unsplash.com/photo-1527481138388-31827a7c94d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #e6f0e6;
+}
+
+.card .text-container {
+  width: 80%;
+  height: 80%;
+  margin: auto;
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+.card .text-container #head {
+  font-family: 'Nobile', sans-serif;
+  font-size: 1.5em;
+  margin: 60px auto 60px auto;
+}
+
+.card p {
+  font-size: 1.1em;
+  line-height: 1.4;
+  font-family: 'Nobile';
+  color: #331717;
+  font-style: italic;
+  text-align: center;
+  margin: 30px auto 0px auto;
+}
+
+.card .front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: -10px 0px 0px -10px;
+  border: 10px solid #9612eb;
+  backface-visibility: hidden;
+  background-color: #9612eb;
+  background-size: contain;
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+  transform: perspective(800px) rotateY(0deg);
+  transition: all 0.8s ease-in-out;
+}
+
+.card:hover .front {
+  transform: perspective(800px) rotateY(-170deg);
+  background-color: #41718d;
+}
+
+.card:hover .back {
+  transform: perspective(800px) rotateY(-170deg);
+  box-shadow: 7px 0px 5px 0px rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+  background-color: #d2dcd2;
+}
+
+.card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 10px solid #9612eb;
+  margin: -10px 0px 0px -10px;
+  backface-visibility: visible;
+  filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, .5));
+  transform-style: preserve-3d;
+  transform-origin: 0% 50%;
+  transform: perspective(800px) rotateY(0deg);
+  transition: all 0.8s ease-in-out;
+  background-color: #e6f0e6;
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.imgset {
+  position: relative;
+  z-index: 1;
+  margin-bottom: -215px;
+}
+
+.imgset img {
+  box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+  border-radius: 5px;
+}
+
+.button-container {
+  text-align: center;
+  margin-top: 20px;
+  /* Adjust the margin as needed */
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 30px;
+  border: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 10rem;
+  transition: all 0.02s;
+  font-weight: bold;
+  color: rgb(37, 37, 37);
+  z-index: 0;
+  box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+}
+
+.button:hover {
+  background: rgb(193, 228, 248);
+  color: rgb(33, 0, 85);
+}
+
+.button:active {
+  transform: scale(0.97);
+}
+
+.hoverEffect {
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.hoverEffect div {
+  background: rgb(222, 0, 75);
+  background: linear-gradient(90deg, rgba(222, 0, 75, 1) 0%, rgba(191, 70, 255, 1) 49%, rgba(0, 212, 255, 1) 100%);
+  border-radius: 40rem;
+  width: 10rem;
+  height: 10rem;
+  transition: 0.4s;
+  filter: blur(20px);
+  animation: effect infinite 3s linear;
+  opacity: 0.5;
+}
+
+.button:hover .hoverEffect div {
+  width: 8rem;
+  height: 8rem;
+}
+
+@keyframes effect {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+#p{
+  color: #ffffff;
+  font-size: 40px;
+}
+
+@media screen and (max-width: 980px) {
+  body {
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-color: rgb(0, 0, 0);
+    background-attachment: fixed;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+
+  .card {
+    position: relative;
+    width: 600px;
+    height: 840px;
+    border: 10px solid #9612eb;
+    margin: 60px auto 0 auto;
+    box-shadow: inset 10px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255), rgba(255, 255, 255, 0.5)),
+      url("https://images.unsplash.com/photo-1527481138388-31827a7c94d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #e6f0e6;
+  }
+
+  .card .text-container {
+    width: 80%;
+    height: 80%;
+    margin: auto;
+  }
+
+  .strikethrough {
+    text-decoration: line-through;
+  }
+
+  .card .text-container #head {
+    font-family: 'Nobile', sans-serif;
+    font-size: 3em;
+    margin: 60px auto 60px auto;
+  }
+
+  .card p {
+    font-size: 2em;
+    line-height: 1.4;
+    font-family: 'Nobile';
+    color: #331717;
+    font-style: italic;
+    text-align: center;
+    margin: 30px auto 0px auto;
+  }
+
+  .card .front {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: -10px 0px 0px -10px;
+    border: 10px solid #9612eb;
+    backface-visibility: hidden;
+    background-color: #9612eb;
+    background-size: contain;
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    transform: perspective(800px) rotateY(0deg);
+    transition: all 0.8s ease-in-out;
+  }
+
+  .card:hover .front {
+    transform: perspective(800px) rotateY(-170deg);
+    background-color: #41718d;
+  }
+
+  .card:hover .back {
+    transform: perspective(800px) rotateY(-170deg);
+    box-shadow: 7px 0px 5px 0px rgba(0, 0, 0, 0.3), inset 2px 0px 15px 0px rgba(0, 0, 0, 0.1);
+    background-color: #d2dcd2;
+  }
+
+  .card .back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 10px solid #9612eb;
+    margin: -10px 0px 0px -10px;
+    backface-visibility: visible;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, .5));
+    transform-style: preserve-3d;
+    transform-origin: 0% 50%;
+    transform: perspective(800px) rotateY(0deg);
+    transition: all 0.8s ease-in-out;
+    background-color: #e6f0e6;
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+  }
+
+  .imgset {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -215px;
+  }
+
+  .imgset img {
+    box-shadow: 0px 6px 11px 7px rgba(0, 0, 0, 0.22);
+    border-radius: 5px;
+  }
+
+  .button-container {
+    text-align: center;
+    margin-top: 90px;
+    /* Adjust the margin as needed */
+  }
+
+  .button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 150px;
+    border: 0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10rem;
+    transition: all 0.02s;
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(37, 37, 37);
+    z-index: 0;
+    box-shadow: 0 0px 7px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  .button:hover {
+    background: rgb(193, 228, 248);
+    color: rgb(33, 0, 85);
+  }
+
+  .button:active {
+    transform: scale(0.97);
+  }
+
+  .hoverEffect {
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+  }
+
+  .hoverEffect div {
+    background: rgb(222, 0, 75);
+    background: linear-gradient(90deg, rgba(222, 0, 75, 1) 0%, rgba(191, 70, 255, 1) 49%, rgba(0, 212, 255, 1) 100%);
+    border-radius: 40rem;
+    width: 10rem;
+    height: 10rem;
+    transition: 0.4s;
+    filter: blur(20px);
+    animation: effect infinite 3s linear;
+    opacity: 0.5;
+  }
+
+  .button:hover .hoverEffect div {
+    width: 8rem;
+    height: 8rem;
+  }
+
+  @keyframes effect {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
